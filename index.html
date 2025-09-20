@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Exam Management</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Exam Management — Students · Seating · Invigilation</h1>
+      <nav>
+        <button data-tab="students" class="active">Students</button>
+        <button data-tab="invigilators">Invigilators</button>
+        <button data-tab="seating">Seating</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Students -->
+      <section id="students" class="tab">
+        <h2>Students</h2>
+        <form id="studentForm">
+          <input name="name" placeholder="Name" required />
+          <input name="roll" placeholder="Roll" required />
+          <input name="class" placeholder="Class" />
+          <input name="marks" placeholder="Marks" type="number" />
+          <input name="email" placeholder="Email" />
+          <button type="submit">Add / Save</button>
+        </form>
+        <div id="studentList"></div>
+      </section>
+
+      <!-- Invigilators -->
+      <section id="invigilators" class="tab hidden">
+        <h2>Invigilators</h2>
+        <form id="invForm">
+          <input name="name" placeholder="Name" required />
+          <input name="empId" placeholder="Employee ID" required />
+          <input name="department" placeholder="Department" />
+          <input name="contact" placeholder="Contact" />
+          <button type="submit">Add / Save</button>
+        </form>
+        <div id="invList"></div>
+      </section>
+
+      <!-- Seating -->
+      <section id="seating" class="tab hidden">
+        <h2>Seating & Assignments</h2>
+        <div class="controls">
+          <textarea id="roomsInput" placeholder='Rooms JSON e.g. [{"name":"A","rows":5,"cols":6}]'></textarea>
+          <label>
+            <input type="checkbox" id="assignInv"> Assign Invigilators (round-robin)
+          </label>
+          <button id="generateSeats">Generate Seating</button>
+          <button id="clearSeats">Clear All Seats</button>
+        </div>
+        <div id="seatingList"></div>
+      </section>
+    </main>
+
+    <footer>
+      <small>Formal palette: navy, soft gray, muted teal — no gradients.</small>
+    </footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
